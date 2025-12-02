@@ -84,6 +84,34 @@ app.get("/product/id/:product_id", (req, res) => {
   );
 });
 
+app.delete("/products/:id", (req, res) => {
+  const { product_id } = req.params;
+
+  con.query(
+    `
+    DELETE FROM products
+    WHERE product_id = $1`,
+    [product_id],
+    (err, result) => {
+      if (err) {
+        return res.send(err.message);
+      }
+    }
+  );
+
+  con.query(
+    `
+    DELETE FROM order_details
+    WHERE product_id = $1`,
+    [product_id],
+    (err, result) => {
+      if (err) {
+        return res.send(err.message);
+      }
+    }
+  );
+});
+
 app.listen(port, () => {
   console.log(`Rodando na porta ${port}!`);
 });
