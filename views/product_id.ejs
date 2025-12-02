@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Produtos</title>
+  </head>
+  <body>
+    <h1>Produto</h1>
+
+    <table border="1">
+      <thead>
+        <tr>
+          <th>Id Produto</th>
+          <th>Nome do Produto</th>
+          <th>Preço Unitário</th>
+          <th>Unidades em Estoque</th>
+          <th>Unidades em Pedidos</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% dados.forEach(item => { %>
+        <tr>
+          <td><%= item.product_id %></td>
+          <td><%= item.product_name %></td>
+          <td><%= item.unit_price %></td>
+          <td><%= item.units_in_stock %></td>
+          <td><%= item.units_on_order %></td>
+        </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  </body>
+</html>

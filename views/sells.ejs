@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Vendas</title>
+  </head>
+  <body>
+    <h1>Lista de Produtos Mais Vendidos</h1>
+
+    <table border="1">
+      <thead>
+        <tr>
+          <th>Nome do Produto</th>
+          <th>Total Vendido</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% dados.forEach(item => { %>
+        <tr>
+          <td><%= item.product_name %></td>
+          <td><%= item.totalvendido %></td>
+        </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  </body>
+</html>
