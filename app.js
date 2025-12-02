@@ -40,7 +40,7 @@ app.get("/products", (req, res) => {
   );
 });
 
-app.get("/product_id/:product_name", (req, res) => {
+app.get("/product/name/:product_name", (req, res) => {
   const { product_name } = req.params;
 
   con.query(
@@ -57,12 +57,12 @@ app.get("/product_id/:product_name", (req, res) => {
         return res.send(err.message);
       }
 
-      res.render("product_id", { dados: result.rows });
+      res.render("product", { dados: result.rows });
     }
   );
 });
 
-app.get("/product_id/:product_id", (req, res) => {
+app.get("/product/id/:product_id", (req, res) => {
   const { product_id } = req.params;
 
   con.query(
@@ -79,7 +79,7 @@ app.get("/product_id/:product_id", (req, res) => {
         return res.send(err.message);
       }
 
-      res.render("product_id", { dados: result.rows });
+      res.render("product", { dados: result.rows });
     }
   );
 });
