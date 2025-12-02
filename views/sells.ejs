@@ -16,7 +16,11 @@
       <tbody>
         <% dados.forEach(item => { %>
         <tr>
-          <td><%= item.product_name %></td>
+          <td>
+            <a href="/product_id/<%= item.product_name %>">
+              <%= item.product_name %>
+            </a>
+          </td>
           <td><%= item.totalvendido %></td>
         </tr>
         <% }) %>
