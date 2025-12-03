@@ -11,14 +11,9 @@
         <tr>
           <th>Id Produto</th>
           <th>Nome do Produto</th>
-          <th>Id Fornecedor</th>
-          <th>Id Categoria</th>
-          <th>Qtd por Unidade</th>
           <th>Preço Unitário</th>
           <th>Unidades em Estoque</th>
           <th>Unidades em Pedidos</th>
-          <th>Nivel de Reordenamento</th>
-          <th>Descontinuado</th>
         </tr>
       </thead>
       <tbody>
@@ -30,14 +25,9 @@
             </a>
           </td>
           <td><%= item.product_name %></td>
-          <td><%= item.supplier_id %></td>
-          <td><%= item.category_id %></td>
-          <td><%= item.quantity_per_unit %></td>
           <td><%= item.unit_price %></td>
           <td><%= item.units_in_stock %></td>
           <td><%= item.units_on_order %></td>
-          <td><%= item.reorder_level %></td>
-          <td><%= item.discontinued %></td>
         </tr>
         <% }) %>
       </tbody>
