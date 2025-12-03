@@ -84,30 +84,34 @@ app.get("/product/id/:product_id", (req, res) => {
   );
 });
 
-app.delete("/products/:id", (req, res) => {
+app.delete("/products/:product_id", (req, res) => {
   const { product_id } = req.params;
-
-  con.query(
-    `
-    DELETE FROM products
-    WHERE product_id = $1`,
-    [product_id],
-    (err, result) => {
-      if (err) {
-        return res.send(err.message);
-      }
-    }
-  );
 
   con.query(
     `
     DELETE FROM order_details
     WHERE product_id = $1`,
     [product_id],
-    (err, result) => {
+    (err) => {
       if (err) {
         return res.send(err.message);
       }
+
+      con.query(
+        `
+    DELETE FROM products
+    WHERE product_id = $1`,
+        [product_id],
+        (err) => {
+          if (err) {
+            return res.send(err.message);
+          }
+
+          return res.status(200).json({
+            message: "Produto apagado com sucesso!",
+          });
+        }
+      );
     }
   );
 });
